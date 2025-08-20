@@ -13,6 +13,8 @@
 
   --transition: all 0.3s ease;
   --border-radius: 8px;
+  --glass-bg-light: rgba(255, 192, 203, 0.85);
+  --glass-border-light: rgba(255, 255, 255, 0.2);
 
   /* Light mode defaults */
   --background: #ffffff;
@@ -127,9 +129,11 @@ p {
 }
 
 .navbar.scrolled {
-  background-color: var(--light-pink);
+  background-color: rgba(171, 30, 88, 0.56);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 2px 20px var(--shadow);
+  border-bottom: 1px solid var(--glass-border-light);
 }
 
 .navbar-container {
@@ -162,7 +166,7 @@ p {
 
 .nav-link {
   text-decoration: none;
-  color: var(--dark-gray);
+  color: white;
   font-weight: 500;
   position: relative;
   transition: var(--transition);
@@ -383,4 +387,56 @@ p {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+/* Additions */
+/* Logo with icon */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logo-icon {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Navigation items with icons */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.nav-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+/* Cart button styling */
+.cart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  color: white;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .nav-text {
+    display: none;
+  }
+  
+  .nav-link {
+    padding: 0.5rem;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+  }
 }
