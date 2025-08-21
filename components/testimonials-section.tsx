@@ -270,7 +270,7 @@ export default function TestimonialsSection() {
         .testimonial-card {
           flex: 0 0 ${100 / visibleCount}%;
           padding: 0 1rem;
-          min-height: 380px;
+          min-height: 300px;
         }
 
         .testimonial-content {
