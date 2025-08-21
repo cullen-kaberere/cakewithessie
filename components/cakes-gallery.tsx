@@ -173,7 +173,7 @@ export default function CakesGallery() {
               <div className="cake-info">
                 <h3>{cake.title}</h3>
                 <p className="cake-description">{cake.description}</p>
-                <p className="cake-price">Starting from ${cake.startingPrice}</p>
+                <p className="cake-price">Starting from Ksh{cake.startingPrice}</p>
               </div>
             </div>
           ))}
@@ -216,7 +216,7 @@ export default function CakesGallery() {
 
         .cakes-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 2rem;
         }
 
@@ -236,7 +236,7 @@ export default function CakesGallery() {
 
         .cake-image {
           position: relative;
-          height: 250px;
+          height: 200px; /* Reduced from 250px */
           overflow: hidden;
         }
 
@@ -270,40 +270,126 @@ export default function CakesGallery() {
         }
 
         .cake-info {
-          padding: 1.5rem;
+          padding: 1rem; /* Reduced from 1.5rem */
         }
 
         .cake-info h3 {
           color: var(--primary-pink);
           margin-bottom: 0.5rem;
-          font-size: 1.25rem;
+          font-size: 1.1rem; /* Reduced from 1.25rem */
         }
 
         .cake-description {
           color: var(--dark-gray);
-          margin-bottom: 1rem;
-          font-size: 0.9rem;
+          margin-bottom: 0.75rem; /* Reduced from 1rem */
+          font-size: 0.85rem; /* Reduced from 0.9rem */
+          line-height: 1.4;
         }
 
         .cake-price {
           color: var(--primary-pink);
           font-weight: 600;
-          font-size: 1.1rem;
+          font-size: 1rem; /* Reduced from 1.1rem */
           margin-bottom: 0;
         }
 
         @media (max-width: 768px) {
           .filter-buttons {
             gap: 0.5rem;
+            margin-bottom: 2rem; /* Reduced from 3rem */
           }
           
           .filter-btn {
             padding: 0.5rem 1rem;
-            font-size: 0.9rem;
+            font-size: 0.8rem; /* Reduced from 0.9rem */
           }
           
           .cakes-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+          }
+          
+          .cake-info {
+            padding: 0.75rem; /* Reduced from 1rem */
+          }
+          
+          .cake-info h3 {
+            font-size: 1rem; /* Reduced from 1.1rem */
+            margin-bottom: 0.25rem; /* Reduced from 0.5rem */
+          }
+          
+          .cake-description {
+            display: none;
+          }
+          
+          .cake-price {
+            font-size: 0.9rem; /* Reduced from 1rem */
+          }
+          
+          .cake-image {
+            height: 150px; /* Reduced from 180px */
+          }
+        }
+
+        @media (max-width: 640px) {
+          .cakes-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+          }
+          
+          .cake-image {
+            height: 130px;
+          }
+          
+          .cake-info {
+            padding: 0.5rem;
+          }
+          
+          .cake-info h3 {
+            font-size: 0.9rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .cakes-grid {
             grid-template-columns: 1fr;
+            gap: 1rem;
+          }
+          
+          .cake-image {
+            height: 180px;
+          }
+          
+          .cake-info {
+            padding: 1rem;
+          }
+          
+          .cake-info h3 {
+            font-size: 1.1rem;
+          }
+          
+          .cake-description {
+            display: block;
+            font-size: 0.8rem;
+          }
+          
+          .cake-price {
+            font-size: 1rem;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .cakes-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .filter-buttons {
+            gap: 0.25rem;
+          }
+          
+          .filter-btn {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.7rem;
           }
         }
       `}</style>
