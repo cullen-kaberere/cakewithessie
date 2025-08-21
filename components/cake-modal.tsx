@@ -90,7 +90,7 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
                     className={`option-btn ${selectedSize === size ? "active" : ""}`}
                     onClick={() => setSelectedSize(size)}
                   >
-                    {size} - ${getSizePrice(size)}
+                    {size} - Ksh{getSizePrice(size)}
                   </button>
                 ))}
               </div>
@@ -110,7 +110,7 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
             </div>
 
             <div className="price-summary">
-              <h3>Total: ${totalPrice}</h3>
+              <h3>Total: Ksh{totalPrice}</h3>
             </div>
 
             <button className="btn btn-primary add-to-cart-btn" onClick={handleAddToCart}>
