@@ -5,21 +5,21 @@ import { useState, useEffect } from "react"
 const slides = [
   {
     id: 1,
-    image: "/elegant-pink-rose-wedding-cake.png",
-    title: "Beautiful Wedding Cakes",
+    image: "/cake3.jpg",
+    title: "Beautiful Kids Cakes",
     subtitle: "Make your special day unforgettable",
-    cta: "View Wedding Cakes",
+    cta: "View Kids Cakes",
   },
   {
     id: 2,
-    image: "/images/birthday-cake.png",
+    image: "/cake6.jpg",
     title: "Custom Birthday Cakes",
     subtitle: "Celebrate every milestone with sweetness",
     cta: "Order Birthday Cake",
   },
   {
     id: 3,
-    image: "/graduation-cake.png",
+    image: "/cake8.jpg",
     title: "Graduation Celebrations",
     subtitle: "Honor achievements with delicious treats",
     cta: "Browse Graduation Cakes",
