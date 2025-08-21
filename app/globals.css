@@ -166,7 +166,7 @@ p {
 
 .nav-link {
   text-decoration: none;
-  color: white;
+  color: var(--primary-pink);
   font-weight: 500;
   position: relative;
   transition: var(--transition);
@@ -174,7 +174,7 @@ p {
 }
 
 .nav-link:hover {
-  color: var(--primary-pink);
+  color: white;
 }
 
 .nav-link::after {
@@ -423,7 +423,7 @@ html {
   font-family: inherit;
   font-size: inherit;
   padding: 0;
-  color: white;
+  color: var(--primary-pink);
 }
 
 /* Mobile responsiveness */
