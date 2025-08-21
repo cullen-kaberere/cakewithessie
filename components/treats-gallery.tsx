@@ -183,7 +183,7 @@ export default function TreatsGallery() {
                 <h3>{treat.title}</h3>
                 <p className="treat-description">{treat.description}</p>
                 <div className="treat-meta">
-                  <p className="treat-price">${treat.price}</p>
+                  <p className="treat-price">Ksh{treat.price}</p>
                   <p className="prep-time">Ready in: {treat.preparationTime}</p>
                 </div>
               </div>
