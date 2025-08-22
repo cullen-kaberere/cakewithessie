@@ -124,8 +124,8 @@ const treatsData = [
   },
   {
     id: 9,
-    title: "Edible Toppers",
-    category: "add-ons",
+    title: "Edible Print Cupcakes",
+    category: "cupcakes",
     image: "/edible-toppers.png",
     price: 15,
     description: "Custom edible decorations for your cakes and cupcakes",
