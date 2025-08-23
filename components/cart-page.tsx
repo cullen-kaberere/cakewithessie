@@ -25,7 +25,7 @@ export default function CartPage() {
     orderDetails += `*Total Amount: $${getTotalPrice()}*\n\n`
     orderDetails += `Please confirm this order and let me know the next steps for payment and delivery. Thank you!`
 
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(orderDetails)}`
+    const whatsappUrl = `https://wa.me/254703201556?text=${encodeURIComponent(orderDetails)}`
     window.open(whatsappUrl, "_blank")
   }
 
