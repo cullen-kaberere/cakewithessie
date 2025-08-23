@@ -63,7 +63,7 @@ const treatsData = [
     id: 3,
     title: "Cupcake Box of 12",
     category: "cupcakes",
-    image: "/cupcake-box-12.png",
+    image: "/cake2.jpg",
     basePrice: 1000,
     description: "Perfect for parties with a dozen delicious cupcakes",
     flavors: [

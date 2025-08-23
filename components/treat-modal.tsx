@@ -305,9 +305,10 @@ export default function TreatModal({ treat, onClose }: TreatModalProps) {
 
         .modal-image img {
           width: 100%;
-          height: 300px;
+          height: 520px;
           object-fit: cover;
           border-radius: var(--border-radius);
+          margin-top: 3rem;
         }
 
         .modal-details h2 {

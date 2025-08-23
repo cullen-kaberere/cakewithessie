@@ -32,13 +32,13 @@ export default function CakesPage() {
               <p>Each cake is crafted with love and attention to detail</p>
               
               {/* Filter Tabs */}
-              <div className="category-filters">
+              {/* <div className="category-filters">
                 <button className="filter-btn active">All Cakes</button>
                 <button className="filter-btn">Wedding</button>
                 <button className="filter-btn">Birthday</button>
                 <button className="filter-btn">Anniversary</button>
                 <button className="filter-btn">Special Events</button>
-              </div>
+              </div> */}
             </div>
             
             <CakesGallery />
