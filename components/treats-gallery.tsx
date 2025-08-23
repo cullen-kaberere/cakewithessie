@@ -8,142 +8,363 @@ const treatCategories = [
   { id: "cupcakes", name: "Cupcakes" },
   { id: "cake-circles", name: "Cake Circles" },
   { id: "bento", name: "Bento Packages" },
-  { id: "all-mine", name: "All Mine Box" },
+  { id: "trio-delight", name: "Trio Delight" },
+  { id: "all-mine", name: "All Mine Package" },
   { id: "add-ons", name: "Add-ons" },
 ]
 
 const treatsData = [
+  // Cupcakes - Box of 4
   {
     id: 1,
     title: "Cupcake Box of 4",
     category: "cupcakes",
     image: "/cupcake-box-4.png",
-    price: 18,
+    basePrice: 550,
     description: "Perfect mini celebration with 4 beautifully decorated cupcakes",
-    flavors: ["Vanilla", "Chocolate", "Strawberry", "Red Velvet", "Lemon", "Marble"],
+    flavors: [
+      { name: "Vanilla", price: 550 },
+      { name: "Marble", price: 600 },
+      { name: "Chocolate", price: 650 },
+      { name: "Chocolate Chip", price: 750 },
+      { name: "Chocolate Mint", price: 750 },
+      { name: "Raspberry", price: 600 },
+      { name: "Red Velvet", price: 650 },
+      { name: "Flavored", price: 600 },
+      { name: "Assorted Box (2 flavors)", price: 750 }
+    ],
     sizes: ["Box of 4"],
     preparationTime: "Same day",
   },
+  // Cupcakes - Box of 6
   {
     id: 2,
     title: "Cupcake Box of 6",
     category: "cupcakes",
     image: "/cupcake-box-6.png",
-    price: 25,
+    basePrice: 800,
     description: "Share the sweetness with 6 gourmet cupcakes",
-    flavors: ["Vanilla", "Chocolate", "Strawberry", "Red Velvet", "Lemon", "Marble", "Mint", "Raspberry"],
+    flavors: [
+      { name: "Vanilla", price: 800 },
+      { name: "Marble", price: 850 },
+      { name: "Chocolate", price: 850 },
+      { name: "Chocolate Chip", price: 950 },
+      { name: "Chocolate Mint", price: 950 },
+      { name: "Raspberry", price: 800 },
+      { name: "Red Velvet", price: 850 },
+      { name: "Flavored", price: 850 },
+      { name: "Assorted Box (2 flavors)", price: 1000 }
+    ],
     sizes: ["Box of 6"],
     preparationTime: "Same day",
   },
+  // Cupcakes - Box of 12
   {
     id: 3,
     title: "Cupcake Box of 12",
     category: "cupcakes",
     image: "/cupcake-box-12.png",
-    price: 45,
+    basePrice: 1000,
     description: "Perfect for parties with a dozen delicious cupcakes",
-    flavors: ["Vanilla", "Chocolate", "Strawberry", "Red Velvet", "Lemon", "Marble", "Mint", "Raspberry", "Funfetti"],
+    flavors: [
+      { name: "Vanilla", price: 1000 },
+      { name: "Marble", price: 1050 },
+      { name: "Chocolate", price: 1200 },
+      { name: "Chocolate Chip", price: 1250 },
+      { name: "Chocolate Mint", price: 1250 },
+      { name: "Raspberry", price: 1050 },
+      { name: "Red Velvet", price: 1200 },
+      { name: "Flavored", price: 1100 },
+      { name: "Assorted Box (2 flavors)", price: 1500 }
+    ],
     sizes: ["Box of 12"],
     preparationTime: "1 day",
   },
+  // Cupcakes - Box of 24
   {
     id: 4,
     title: "Cupcake Box of 24",
     category: "cupcakes",
     image: "/cupcake-box-24.png",
-    price: 85,
+    basePrice: 2400,
     description: "Large celebration package with 24 premium cupcakes",
     flavors: [
-      "Vanilla",
-      "Chocolate",
-      "Strawberry",
-      "Red Velvet",
-      "Lemon",
-      "Marble",
-      "Mint",
-      "Raspberry",
-      "Funfetti",
-      "Caramel",
+      { name: "Vanilla", price: 2400 },
+      { name: "Marble", price: 2450 },
+      { name: "Chocolate", price: 2800 },
+      { name: "Chocolate Chip", price: 2850 },
+      { name: "Chocolate Mint", price: 2850 },
+      { name: "Raspberry", price: 2450 },
+      { name: "Red Velvet", price: 2800 },
+      { name: "Flavored", price: 2600 },
+      { name: "Assorted Box (2 flavors)", price: 3000 }
     ],
     sizes: ["Box of 24"],
     preparationTime: "2 days",
   },
+  // Edible Print Cupcakes
   {
     id: 5,
-    title: "Cake Circles - Mini Delights",
-    category: "cake-circles",
-    image: "/cake-circles.png",
-    price: 35,
-    description: "Individual cake circles perfect for personal treats",
-    flavors: ["Vanilla", "Chocolate", "Red Velvet", "Lemon"],
-    sizes: ["6 pieces", "12 pieces"],
-    preparationTime: "Same day",
-  },
-  {
-    id: 6,
-    title: "Bento Package - Sweet Surprise",
-    category: "bento",
-    image: "/bento-package.png",
-    price: 55,
-    description: "Small cake + 5 cupcakes in a beautiful presentation box",
-    flavors: ["Vanilla", "Chocolate", "Strawberry", "Red Velvet"],
-    sizes: ["Standard Package"],
-    preparationTime: "2 days",
-    packageContents: ["1 Small Cake (0.5kg)", "5 Cupcakes", "Beautiful Gift Box", "Personalized Message Card"],
-  },
-  {
-    id: 7,
-    title: "All Mine Box - Complete Experience",
-    category: "all-mine",
-    image: "/all-mine-box.png",
-    price: 75,
-    description: "Ultimate treat box with cake, cupcakes, drink, and memories",
-    flavors: ["Vanilla", "Chocolate", "Strawberry", "Red Velvet", "Lemon"],
-    sizes: ["Complete Package"],
-    preparationTime: "3 days",
-    packageContents: [
-      "1 Small Cake (0.5kg)",
-      "2 Gourmet Cupcakes",
-      "Choice of Drink (Coffee/Tea/Juice)",
-      "10 Polaroid Pictures",
-      "Premium Gift Box",
-      "Personalized Note",
-    ],
-    drinkOptions: ["Premium Coffee", "Herbal Tea", "Fresh Juice", "Hot Chocolate"],
-  },
-  {
-    id: 8,
-    title: "Flower Bouquet Add-on",
-    category: "add-ons",
-    image: "/flower-bouquet-addon.png",
-    price: 25,
-    description: "Beautiful fresh flower bouquet to complement your cake order",
-    flavors: [],
-    sizes: ["Small", "Medium", "Large"],
-    preparationTime: "Same day",
-  },
-  {
-    id: 9,
     title: "Edible Print Cupcakes",
     category: "cupcakes",
     image: "/edible-toppers.png",
-    price: 15,
+    basePrice: 1500,
     description: "Custom edible decorations for your cakes and cupcakes",
-    flavors: [],
-    sizes: ["Set of 6", "Set of 12"],
-    preparationTime: "1 day",
+    flavors: [
+      { name: "Lemon", price: 1500 },
+      { name: "Strawberry", price: 1500 },
+      { name: "Mint", price: 1500 },
+      { name: "Passion", price: 1500 },
+      { name: "Pineapple", price: 1500 },
+      { name: "Orange", price: 1500 },
+      { name: "Pina Colada", price: 1500 },
+      { name: "Blueberry", price: 1500 },
+      { name: "Vanilla", price: 1500 },
+      { name: "Marble", price: 1500 },
+      { name: "Chocolate", price: 1500 },
+      { name: "Chocolate Chip", price: 1500 },
+      { name: "Chocolate Mint", price: 1500 },
+      { name: "Raspberry", price: 1500 },
+      { name: "Red Velvet", price: 1500 }
+    ],
+    sizes: [
+      { name: "Box of 6", price: 1500 },
+      { name: "Box of 12", price: 2000 }
+    ],
+    preparationTime: "3 business days",
+    maxOrder: "Max 6 prints per order",
+    packageContents: ["Edible print cupcakes", "Max 6 prints per order"]
   },
+  // Bento Box of Two
+  {
+    id: 6,
+    title: "Bento Box of Two",
+    category: "bento",
+    image: "/bento-package.png",
+    basePrice: 1500,
+    description: "Beautiful bento package with 2 items",
+    flavors: [
+      { name: "Vanilla", price: 1500 },
+      { name: "Bubblegum", price: 1500 },
+      { name: "Pina Colada", price: 1500 },
+      { name: "Lemon", price: 1500 },
+      { name: "Passion", price: 1500 },
+      { name: "Chocolate", price: 1500 },
+      { name: "Mint", price: 1500 },
+      { name: "Strawberry", price: 1500 },
+      { name: "Pineapple", price: 1500 },
+      { name: "Orange", price: 1500 }
+    ],
+    sizes: ["Standard Package"],
+    preparationTime: "2 days",
+    packageContents: ["2 cake items", "Beautiful gift box", "Personalized message card"],
+    notes: "Cake toppers charged separately. Cannot have assorted flavors."
+  },
+  // Bento Box of Five
+  {
+    id: 7,
+    title: "Bento Box of Five",
+    category: "bento",
+    image: "/bento-package.png",
+    basePrice: 2400,
+    description: "Premium bento package with 5 delicious items",
+    flavors: [
+      { name: "Vanilla", price: 2400 },
+      { name: "Marble", price: 2400 },
+      { name: "Chocolate", price: 2400 },
+      { name: "Flavored", price: 2400 },
+      { name: "Vanilla Oreo", price: 2400 },
+      { name: "Chocolate Mint", price: 2600 },
+      { name: "Chocolate Chip", price: 2600 },
+      { name: "Red Velvet", price: 2600 },
+      { name: "Raspberry", price: 2600 },
+      { name: "Assorted Box (2 flavors)", price: 2600 }
+    ],
+    sizes: ["Standard Package"],
+    preparationTime: "2 days",
+    packageContents: ["5 cake items", "Premium gift box", "Personalized message card"]
+  },
+  // Bento Box of Eight
+  {
+    id: 8,
+    title: "Bento Box of Eight",
+    category: "bento",
+    image: "/bento-package.png",
+    basePrice: 3600,
+    description: "Deluxe bento package with 8 exquisite items",
+    flavors: [
+      { name: "Vanilla", price: 3600 },
+      { name: "Chocolate Chip", price: 3600 },
+      { name: "Raspberry", price: 3600 },
+      { name: "Flavored", price: 3600 },
+      { name: "Vanilla/Chocolate Oreo", price: 3600 },
+      { name: "Bubblegum", price: 3600 },
+      { name: "Chocolate Mint", price: 3600 },
+      { name: "Red Velvet", price: 3600 },
+      { name: "Coconut", price: 3600 },
+      { name: "Assorted Box (2 flavors)", price: 3600 }
+    ],
+    sizes: ["Standard Package"],
+    preparationTime: "3 days",
+    packageContents: ["8 cake items", "Deluxe gift box", "Personalized message card"]
+  },
+  // Trio Delight
+  {
+    id: 9,
+    title: "Trio Delight",
+    category: "trio-delight",
+    image: "/cake-circles.png",
+    basePrice: 3200,
+    description: "3 mini cakes summing to 2kgs - perfect for variety",
+    flavors: [
+      { name: "Vanilla", price: 3200 },
+      { name: "Raspberry", price: 3200 },
+      { name: "Vanilla Oreo", price: 3200 },
+      { name: "Chocolate Oreo", price: 3200 },
+      { name: "Chocolate", price: 3200 },
+      { name: "Chocolate Mint", price: 3200 },
+      { name: "Chocolate Chip", price: 3200 },
+      { name: "Red Velvet", price: 3200 },
+      { name: "Flavored", price: 3200 },
+      { name: "Assorted (2 flavors)", price: 3200 },
+      { name: "Lemon", price: 3200 },
+      { name: "Strawberry", price: 3200 },
+      { name: "Mint", price: 3200 },
+      { name: "Passion", price: 3200 },
+      { name: "Pineapple", price: 3200 },
+      { name: "Orange", price: 3200 },
+      { name: "Blueberry", price: 3200 },
+      { name: "Pina Colada", price: 3200 }
+    ],
+    sizes: ["Standard Package (3 mini cakes)"],
+    preparationTime: "2 days",
+    packageContents: ["3 mini cakes (total 2kg)", "Beautiful presentation"]
+  },
+  // All Mine Package
   {
     id: 10,
+    title: "All Mine Package",
+    category: "all-mine",
+    image: "/all-mine-box.png",
+    basePrice: 3000,
+    description: "Complete celebration experience with cake, cupcakes, drink, and memories",
+    flavors: [
+      { name: "Vanilla", price: 3000 },
+      { name: "Bubblegum", price: 3000 },
+      { name: "Pina Colada", price: 3000 },
+      { name: "Passion", price: 3000 },
+      { name: "Chocolate", price: 3000 },
+      { name: "Mint", price: 3000 },
+      { name: "Strawberry", price: 3000 },
+      { name: "Pineapple", price: 3000 },
+      { name: "Orange", price: 3000 },
+      { name: "Raspberry", price: 3000 }
+    ],
+    drinkOptions: [
+      "Gordon's Tonic", "KO", "Smirnoff", "Manyatta", "Snap", 
+      "Savannah", "Red Bull", "Faxe", "Tusker", "Uprise", 
+      "Monster Energy", "Canned Soda", "Ribena", "Minute Maid"
+    ],
+    sizes: ["Complete Package"],
+    preparationTime: "3 days",
+    packageContents: [
+      "0.5kg mini cake",
+      "2 cupcakes",
+      "Drink of choice",
+      "10 polaroid pictures",
+      "Premium gift box",
+      "Personalized note"
+    ],
+    notes: "Extra polaroids: Ksh 50 each. Drinks can be supplied with chocolate at extra cost."
+  },
+  // Cake Circles
+  {
+    id: 11,
+    title: "Cake Circles",
+    category: "cake-circles",
+    image: "/cake-circles.png",
+    basePrice: 1500,
+    description: "Individual chocolate-coated cake circles - perfect personal treats",
+    flavors: [
+      { name: "Vanilla", price: 1500 },
+      { name: "Raspberry", price: 1500 },
+      { name: "Lemon", price: 1500 },
+      { name: "Flavored", price: 1500 },
+      { name: "Salted Caramel", price: 1500 },
+      { name: "Chocolate", price: 1500 },
+      { name: "Bubblegum", price: 1500 },
+      { name: "Pineapple Coconut", price: 1500 },
+      { name: "Assorted (2 flavors)", price: 1500 },
+      { name: "Lemon", price: 1500 },
+      { name: "Strawberry", price: 1500 },
+      { name: "Mint", price: 1500 },
+      { name: "Passion", price: 1500 },
+      { name: "Pineapple", price: 1500 },
+      { name: "Orange", price: 1500 },
+      { name: "Pina Colada", price: 1500 },
+      { name: "Blueberry", price: 1500 }
+    ],
+    sizes: [
+      { name: "Box of 6", price: 1500 },
+      { name: "Box of 12", price: 3000 }
+    ],
+    preparationTime: "Same day",
+    notes: "Chocolate coated. Can be assorted with 2 flavors."
+  },
+  // Add-ons - Edible Toppers
+  {
+    id: 12,
+    title: "Edible Toppers",
+    category: "add-ons",
+    image: "/edible-toppers.png",
+    basePrice: 100,
+    description: "Beautiful edible decorations to enhance your cakes",
+    items: [
+      { name: "Black Grad Cap", price: 500 },
+      { name: "Custom Grad Cap", price: 600 },
+      { name: "Fondant Rose", price: 300 },
+      { name: "Pearls (sweets)", price: 100 },
+      { name: "Chocolate Toppers", price: 300 },
+      { name: "Oreos", price: 250 },
+      { name: "Custom Bow (large)", price: 1000 },
+      { name: "Rainbow", price: 1000 },
+      { name: "Custom Unicorn Horn (large)", price: 1000 },
+      { name: "Teddy Bear", price: 600 },
+      { name: "Animated Doll (medium)", price: 600 },
+      { name: "Strawberries (berry fruits)", price: 400 },
+      { name: "Baby Shoes", price: 500 },
+      { name: "Cupcake/Cake Edible Print", price: 1000 }
+    ],
+    sizes: ["Each"],
+    preparationTime: "Same day"
+  },
+  // Add-ons - Non-Edible Toppers
+  {
+    id: 13,
     title: "Non-Edible Toppers",
     category: "add-ons",
     image: "/non-edible-toppers.png",
-    price: 12,
+    basePrice: 150,
     description: "Decorative toppers you can keep as keepsakes",
-    flavors: [],
-    sizes: ["Set of 3", "Set of 6"],
-    preparationTime: "Same day",
-  },
+    items: [
+      { name: "A6 Custom Card", price: 250 },
+      { name: "Ribbons (6)", price: 200 },
+      { name: "Animated Paper Toppers", price: 1000 },
+      { name: "Acrylic Name Toppers", price: 600 },
+      { name: "Paper Name Toppers", price: 300 },
+      { name: "Wavy Candles", price: 350 },
+      { name: "Butterflies", price: 350 },
+      { name: "Placard Numbers", price: 300 },
+      { name: "Candle Numbers", price: 150 },
+      { name: "Small Tiara", price: 400 },
+      { name: "Big Tiara", price: 500 },
+      { name: "Polaroids (10)", price: 500 },
+      { name: "Spheres", price: 1000 },
+      { name: "Flowers (40-50 stems)", price: 2000 }
+    ],
+    sizes: ["Each"],
+    preparationTime: "Same day"
+  }
 ]
 
 export default function TreatsGallery() {
@@ -183,7 +404,7 @@ export default function TreatsGallery() {
                 <h3>{treat.title}</h3>
                 <p className="treat-description">{treat.description}</p>
                 <div className="treat-meta">
-                  <p className="treat-price">Ksh{treat.price}</p>
+                  <p className="treat-price">From Ksh{treat.basePrice}</p>
                   <p className="prep-time">Ready in: {treat.preparationTime}</p>
                 </div>
               </div>

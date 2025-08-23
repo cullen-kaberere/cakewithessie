@@ -32,14 +32,15 @@ export default function TreatsPage() {
               <p>Discover our collection of handcrafted treats and celebration packages</p>
               
               {/* Category Filters */}
-              <div className="category-filters">
+              {/* <div className="category-filters">
                 <button className="filter-btn active">All Treats</button>
                 <button className="filter-btn">Cupcakes</button>
-                <button className="filter-btn">Cookies</button>
-                <button className="filter-btn">Dessert Bars</button>
-                <button className="filter-btn">Packages</button>
-                <button className="filter-btn">Seasonal</button>
-              </div>
+                <button className="filter-btn">Cake Circles</button>
+                <button className="filter-btn">Bento Packages</button>
+                <button className="filter-btn">Trio Delight</button>
+                <button className="filter-btn">All Mine Package</button>
+                <button className="filter-btn">Add-ons</button>
+              </div> */}
             </div>
             
             <TreatsGallery />
