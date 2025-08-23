@@ -61,7 +61,7 @@ export default function CartModal() {
                       {item.flavor && <p>Flavor: {item.flavor}</p>}
                       {item.size && <p>Size: {item.size}</p>}
                       {item.drink && <p>Drink: {item.drink}</p>}
-                      <p className="item-price">${item.price} each</p>
+                      <p className="item-price">Ksh{item.price} each</p>
                     </div>
                     <div className="item-controls">
                       <div className="quantity-controls">
@@ -83,7 +83,7 @@ export default function CartModal() {
 
               <div className="cart-footer">
                 <div className="cart-total">
-                  <h3>Total: ${getTotalPrice()}</h3>
+                  <h3>Total: Ksh{getTotalPrice()}</h3>
                 </div>
                 <div className="cart-actions">
                   <button className="btn btn-secondary" onClick={clearCart}>

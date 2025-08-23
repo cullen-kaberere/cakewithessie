@@ -83,11 +83,11 @@ export default function CartPage() {
                 <h3>Order Summary</h3>
                 <div className="summary-line">
                   <span>Items ({items.reduce((total, item) => total + item.quantity, 0)})</span>
-                  <span>${getTotalPrice()}</span>
+                  <span>Ksh{getTotalPrice()}</span>
                 </div>
                 <div className="summary-total">
                   <span>Total</span>
-                  <span>${getTotalPrice()}</span>
+                  <span>Ksh{getTotalPrice()}</span>
                 </div>
                 <button className="btn btn-primary checkout-btn" onClick={handleCheckout}>
                   Checkout via WhatsApp
