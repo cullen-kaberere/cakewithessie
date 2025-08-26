@@ -41,7 +41,7 @@ const treatsData = [
     id: 2,
     title: "Cupcake Box of 6",
     category: "cupcakes",
-    image: "/cupcake-box-6.png",
+    image: "/cake11.jpg",
     basePrice: 800,
     description: "Share the sweetness with 6 gourmet cupcakes",
     flavors: [
@@ -278,6 +278,8 @@ const treatsData = [
     notes: "Extra polaroids: Ksh 50 each. Drinks can be supplied with chocolate at extra cost."
   },
   // Cake Circles
+
+  
   {
     id: 11,
     title: "Cake Circles",
