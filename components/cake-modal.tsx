@@ -535,15 +535,16 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
           position: relative;
           background: linear-gradient(135deg, var(--soft-pink) 0%, var(--light-gray) 100%);
           display: flex;
-          align-items: center;
+          //align-items: center;
           justify-content: center;
           padding: 2rem;
         }
 
         .modal-image {
           position: relative;
+          margin-top: 30px;
           width: 100%;
-          height: 300px;
+          height: 520px;
           border-radius: 16px;
           overflow: hidden;
           box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
