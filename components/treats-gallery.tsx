@@ -19,7 +19,7 @@ const treatsData = [
     id: 1,
     title: "Cupcake Box of 4",
     category: "cupcakes",
-    image: "/cupcake-box-4.png",
+    image: "/cake25.jpg",
     basePrice: 550,
     description: "Perfect mini celebration with 4 beautifully decorated cupcakes",
     flavors: [
@@ -85,7 +85,7 @@ const treatsData = [
     id: 4,
     title: "Cupcake Box of 24",
     category: "cupcakes",
-    image: "/cupcake-box-24.png",
+    image: "/cake15.jpg",
     basePrice: 2400,
     description: "Large celebration package with 24 premium cupcakes",
     flavors: [
@@ -107,7 +107,7 @@ const treatsData = [
     id: 5,
     title: "Edible Print Cupcakes",
     category: "cupcakes",
-    image: "/edible-toppers.png",
+    image: "/cake23.jpg",
     basePrice: 1500,
     description: "Custom edible decorations for your cakes and cupcakes",
     flavors: [
@@ -140,7 +140,7 @@ const treatsData = [
     id: 6,
     title: "Bento Box of Two",
     category: "bento",
-    image: "/bento-package.png",
+    image: "/cake17.jpg",
     basePrice: 1500,
     description: "Beautiful bento package with 2 items",
     flavors: [
@@ -165,7 +165,7 @@ const treatsData = [
     id: 7,
     title: "Bento Box of Five",
     category: "bento",
-    image: "/bento-package.png",
+    image: "/cake26.jpg",
     basePrice: 2400,
     description: "Premium bento package with 5 delicious items",
     flavors: [
@@ -189,7 +189,7 @@ const treatsData = [
     id: 8,
     title: "Bento Box of Eight",
     category: "bento",
-    image: "/bento-package.png",
+    image: "/cake18.jpg",
     basePrice: 3600,
     description: "Deluxe bento package with 8 exquisite items",
     flavors: [
@@ -213,7 +213,7 @@ const treatsData = [
     id: 9,
     title: "Trio Delight",
     category: "trio-delight",
-    image: "/cake-circles.png",
+    image: "/cake27.jpg",
     basePrice: 3200,
     description: "3 mini cakes summing to 2kgs - perfect for variety",
     flavors: [
@@ -245,7 +245,7 @@ const treatsData = [
     id: 10,
     title: "All Mine Package",
     category: "all-mine",
-    image: "/all-mine-box.png",
+    image: "/cake19.jpg",
     basePrice: 3000,
     description: "Complete celebration experience with cake, cupcakes, drink, and memories",
     flavors: [
@@ -279,12 +279,12 @@ const treatsData = [
   },
   // Cake Circles
 
-  
+
   {
     id: 11,
     title: "Cake Circles",
     category: "cake-circles",
-    image: "/cake-circles.png",
+    image: "/cake28.jpg",
     basePrice: 1500,
     description: "Individual chocolate-coated cake circles - perfect personal treats",
     flavors: [
