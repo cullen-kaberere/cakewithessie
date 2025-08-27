@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 const slides = [
   {
@@ -59,7 +60,7 @@ export default function HeroSlider() {
             <div className="slide-content">
               <h1 className="slide-title">{slide.title}</h1>
               <p className="slide-subtitle">{slide.subtitle}</p>
-              <button className="btn btn-primary slide-cta">{slide.cta}</button>
+              <Link href="/cakes" className="btn btn-primary slide-cta no-underline">{slide.cta}</Link>
             </div>
           </div>
         ))}
