@@ -210,6 +210,41 @@ const EXTRAS = {
   BLACK_FROSTING: 350,
   WHIPPING_CREAM: 700
 }
+// Addons pricing
+const ADDONS = {
+  EDIBLE: [
+    { id: "edible-1", name: "Black Grad Cap", price: 500 },
+    { id: "edible-2", name: "Custom Grad Cap", price: 600 },
+    { id: "edible-3", name: "Fondant Rose", price: 300 },
+    { id: "edible-4", name: "Pearls (sweets)", price: 100 },
+    { id: "edible-5", name: "Chocolate Toppers", price: 300 },
+    { id: "edible-6", name: "Oreos", price: 250 },
+    { id: "edible-7", name: "Custom Bow (large)", price: 1000 },
+    { id: "edible-8", name: "Rainbow", price: 1000 },
+    { id: "edible-9", name: "Custom Unicorn Horn (large)", price: 1000 },
+    { id: "edible-10", name: "Teddy Bear", price: 600 },
+    { id: "edible-11", name: "Animated Doll (medium)", price: 600 },
+    { id: "edible-12", name: "Strawberries (berry fruits)", price: 400 },
+    { id: "edible-13", name: "Baby Shoes", price: 500 },
+    { id: "edible-14", name: "Cupcake/Cake Edible Print", price: 1000 }
+  ],
+  NON_EDIBLE: [
+    { id: "non-edible-1", name: "A6 Custom Card", price: 250 },
+    { id: "non-edible-2", name: "Ribbons (6)", price: 200 },
+    { id: "non-edible-3", name: "Animated Paper Toppers", price: 1000 },
+    { id: "non-edible-4", name: "Acrylic Name Toppers", price: 600 },
+    { id: "non-edible-5", name: "Paper Name Toppers", price: 300 },
+    { id: "non-edible-6", name: "Wavy Candles", price: 350 },
+    { id: "non-edible-7", name: "Butterflies", price: 350 },
+    { id: "non-edible-8", name: "Placard Numbers", price: 300 },
+    { id: "non-edible-9", name: "Candle Numbers", price: 150 },
+    { id: "non-edible-10", name: "Small Tiara", price: 400 },
+    { id: "non-edible-11", name: "Big Tiara", price: 500 },
+    { id: "non-edible-12", name: "Polaroids (10)", price: 500 },
+    { id: "non-edible-13", name: "Spheres", price: 1000 },
+    { id: "non-edible-14", name: "Flowers (40-50 stems)", price: 2000 }
+  ]
+}
 
 export default function CakeModal({ cake, onClose }: CakeModalProps) {
   const [selectedFlavor, setSelectedFlavor] = useState("Vanilla")
@@ -221,6 +256,7 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
     whippingCream: false,
     customTopper: false
   })
+  const [selectedAddons, setSelectedAddons] = useState<{id: string, name: string, price: number}[]>([])
   const { addItem } = useCart()
 
   const getPrice = (flavor: string, size: string) => {
@@ -243,9 +279,22 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
     return extrasTotal;
   }
 
+  const calculateAddonsPrice = () => {
+    return selectedAddons.reduce((total, addon) => total + addon.price, 0);
+  }
+
   const basePrice = getPrice(selectedFlavor, selectedSize);
   const extrasPrice = calculateExtrasPrice();
-  const totalPrice = (basePrice + extrasPrice) * quantity;
+  const addonsPrice = calculateAddonsPrice();
+  const totalPrice = (basePrice + extrasPrice + addonsPrice) * quantity;
+
+  const handleAddonToggle = (addon: {id: string, name: string, price: number}, type: 'edible' | 'non-edible') => {
+    if (selectedAddons.some(a => a.id === addon.id)) {
+      setSelectedAddons(prev => prev.filter(a => a.id !== addon.id));
+    } else {
+      setSelectedAddons(prev => [...prev, addon]);
+    }
+  }
 
   const handleAddToCart = () => {
     const extrasDescription = [];
@@ -253,16 +302,19 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
     if (selectedExtras.whippingCream) extrasDescription.push("Whipping Cream");
     if (selectedExtras.customTopper) extrasDescription.push("Custom Topper");
 
+    const addonsDescription = selectedAddons.map(addon => addon.name);
+
     const actualFlavor = selectedFlavor === "Flavored Cakes" 
       ? `${selectedFlavoredCake} (Flavored Cake)`
       : selectedFlavor;
 
     const extrasText = extrasDescription.length > 0 ? ` with ${extrasDescription.join(", ")}` : "";
+    const addonsText = addonsDescription.length > 0 ? ` with ${addonsDescription.join(", ")}` : "";
 
     addItem({
-      title: `${cake.title} - ${actualFlavor} (${selectedSize})${extrasText}`,
+      title: `${cake.title} - ${actualFlavor} (${selectedSize})${extrasText}${addonsText}`,
       image: cake.image,
-      price: basePrice + extrasPrice,
+      price: basePrice + extrasPrice + addonsPrice,
       quantity,
     })
     onClose()
@@ -399,6 +451,57 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
                 </div>
               </div>
 
+              {/* Addons Section */}
+              <div className="option-group">
+                <div className="option-header">
+                  <h4>Edible Toppers</h4>
+                </div>
+                <div className="addons-grid">
+                  {ADDONS.EDIBLE.map((addon) => (
+                    <label 
+                      key={addon.id}
+                      className={`addon-option ${selectedAddons.some(a => a.id === addon.id) ? "selected" : ""}`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedAddons.some(a => a.id === addon.id)}
+                        onChange={() => handleAddonToggle(addon, 'edible')}
+                      />
+                      <span className="addon-checkmark"></span>
+                      <span className="addon-info">
+                        <span className="addon-name">{addon.name}</span>
+                        <span className="addon-price">+ Ksh {addon.price}</span>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div className="option-group">
+                <div className="option-header">
+                  <h4>Non-Edible Toppers</h4>
+                </div>
+                <div className="addons-grid">
+                  {ADDONS.NON_EDIBLE.map((addon) => (
+                    <label 
+                      key={addon.id}
+                      className={`addon-option ${selectedAddons.some(a => a.id === addon.id) ? "selected" : ""}`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedAddons.some(a => a.id === addon.id)}
+                        onChange={() => handleAddonToggle(addon, 'non-edible')}
+                      />
+                      <span className="addon-checkmark"></span>
+                      <span className="addon-info">
+                        <span className="addon-name">{addon.name}</span>
+                        <span className="addon-price">+ Ksh {addon.price}</span>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
               <div className="option-group">
                 <div className="option-header">
                   <h4>Quantity</h4>
@@ -451,6 +554,13 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
                   </div>
                 )}
 
+                {selectedAddons.map((addon) => (
+                  <div key={addon.id} className="price-line extra-line">
+                    <span>{addon.name}:</span>
+                    <span>+ Ksh {addon.price}</span>
+                  </div>
+                ))}
+                
                 <div className="price-line">
                   <span>Quantity:</span>
                   <span>{quantity}</span>
@@ -819,6 +929,79 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
           font-size: 0.8rem;
         }
 
+        /* Addons Styles */
+        .addons-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 0.5rem;
+          max-height: 200px;
+          overflow-y: auto;
+          padding: 0.5rem;
+        }
+
+        .addon-option {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.75rem;
+          border: 2px solid var(--light-gray);
+          background: white;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .addon-option:hover,
+        .addon-option.selected {
+          border-color: var(--primary-pink);
+          background: var(--soft-pink);
+        }
+
+        .addon-option input {
+          display: none;
+        }
+
+        .addon-checkmark {
+          width: 18px;
+          height: 18px;
+          border: 2px solid var(--light-gray);
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          flex-shrink: 0;
+        }
+
+        .addon-option input:checked + .addon-checkmark {
+          background: var(--primary-pink);
+          border-color: var(--primary-pink);
+        }
+
+        .addon-option input:checked + .addon-checkmark::after {
+          content: "✓";
+          color: white;
+          font-size: 0.8rem;
+        }
+
+        .addon-info {
+          display: flex;
+          flex-direction: column;
+          gap: 0.1rem;
+        }
+
+        .addon-name {
+          font-size: 0.85rem;
+          font-weight: 500;
+          color: var(--dark-gray);
+        }
+
+        .addon-price {
+          font-size: 0.75rem;
+          color: var(--primary-pink);
+          font-weight: 600;
+        }
+
         .quantity-controls {
           display: flex;
           align-items: center;
@@ -963,6 +1146,10 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
           .size-options {
             grid-template-columns: repeat(2, 1fr);
           }
+          
+          .addons-grid {
+            grid-template-columns: 1fr;
+          }
         }
 
         @media (max-width: 480px) {
@@ -1012,7 +1199,8 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
         
         .dark .flavor-option,
         .dark .size-option,
-        .dark .sub-flavor-option {
+        .dark .sub-flavor-option,
+        .dark .addon-option {
           background: var(--muted);
           border-color: var(--border);
           color: var(--foreground);
@@ -1020,7 +1208,8 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
         
         .dark .flavor-option.active,
         .dark .size-option.active,
-        .dark .sub-flavor-option.active {
+        .dark .sub-flavor-option.active,
+        .dark .addon-option.selected {
           background: var(--soft-pink);
           border-color: var(--primary-pink);
         }
@@ -1034,7 +1223,8 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
           color: var(--primary-pink);
         }
         
-        .dark .extra-option:hover {
+        .dark .extra-option:hover,
+        .dark .addon-option:hover {
           background: var(--muted);
         }
         
