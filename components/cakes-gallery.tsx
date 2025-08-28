@@ -18,7 +18,7 @@ const cakesData = [
     id: 1,
     title: "Tier Cake",
     category: "tier",
-    image: "/elegant-pink-rose-wedding-cake.png",
+    image: "/cake3.jpg",
     startingPrice: 150,
     description: "Beautiful tier wedding cake with delicate sugar roses",
     flavors: ["Vanilla", "Chocolate", "Red Velvet", "Lemon"],
@@ -88,7 +88,7 @@ const cakesData = [
     id: 8,
     title: "Custom Design Cake",
     category: "custom",
-    image: "/custom-cake.png",
+    image: "/cake33.jpg",
     startingPrice: 70,
     description: "Personalized cake design based on your vision",
     flavors: ["Vanilla", "Chocolate", "Red Velvet", "Lemon", "Strawberry", "Oreo", "Chocolate Mint"],
@@ -172,7 +172,7 @@ export default function CakesGallery() {
               <div className="cake-info">
                 <h3>{cake.title}</h3>
                 <p className="cake-description">{cake.description}</p>
-                <p className="cake-price">Starting from Ksh{cake.startingPrice}</p>
+                {/* <p className="cake-price">Starting from Ksh{cake.startingPrice}</p> */}
               </div>
             </div>
           ))}
