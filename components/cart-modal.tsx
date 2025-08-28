@@ -26,7 +26,7 @@ export default function CartModal() {
     orderDetails += `*💰 Total Amount: Ksh${getTotalPrice()}*\n\n`
     orderDetails += `Please confirm this order and let me know the next steps for payment and delivery. Thank you! 💖`
 
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(orderDetails)}`
+    const whatsappUrl = `https://wa.me/254727109922?text=${encodeURIComponent(orderDetails)}`
     window.open(whatsappUrl, "_blank")
   }
 
