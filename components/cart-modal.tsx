@@ -10,13 +10,13 @@ export default function CartModal() {
   const handleCheckout = () => {
     if (items.length === 0) return
 
-    let orderDetails = `🎂 *Complete Order from Cakes With Essie* 🎂\n\n`
+    let orderDetails = ` *Hey, I would like to Order from Cakes With Essie* \n\n`
 
     items.forEach((item, index) => {
       orderDetails += `*${index + 1}. ${item.title}*\n`
-      if (item.flavor) orderDetails += `   🍰 Flavor: ${item.flavor}\n`
-      if (item.size) orderDetails += `   📦 Size: ${item.size}\n`
-      if (item.drink) orderDetails += `   🥤 Drink: ${item.drink}\n`
+      if (item.flavor) orderDetails += `    Flavor: ${item.flavor}\n`
+      if (item.size) orderDetails += `    Size: ${item.size}\n`
+      if (item.drink) orderDetails += `    Drink: ${item.drink}\n`
       orderDetails += `   ✖️ Quantity: ${item.quantity}\n`
       orderDetails += `   💰 Price: Ksh${item.price * item.quantity}\n`
       if (item.preparationTime) orderDetails += `   ⏰ Prep Time: ${item.preparationTime}\n`
@@ -26,7 +26,7 @@ export default function CartModal() {
     orderDetails += `*💰 Total Amount: Ksh${getTotalPrice()}*\n\n`
     orderDetails += `Please confirm this order and let me know the next steps for payment and delivery. Thank you! 💖`
 
-    const whatsappUrl = `https://wa.me/254727109922?text=${encodeURIComponent(orderDetails)}`
+    const whatsappUrl = `https://wa.me/254747109922?text=${encodeURIComponent(orderDetails)}`
     window.open(whatsappUrl, "_blank")
   }
 
