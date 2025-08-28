@@ -559,3 +559,23 @@ body.mobile-menu-open {
     font-size: 1.5rem;
   }
 }
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-link {
+  color: var(--dark-gray);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  display: inline-block;
+  }
+
+.footer-link:hover {
+  color:var(--primary-pink);
+  transform: scale(1.05);
+}
