@@ -3,14 +3,14 @@
 const featuredItems = [
   {
     id: 1,
-    image: "/elegant-chocolate-wedding-cake.png",
-    title: "Wedding Cakes",
+    image: "/cake3.jpg",
+    title: "Tier Cakes",
     description: "Elegant designs for your perfect day",
-    category: "weddings",
+    category: "tier",
   },
   {
     id: 2,
-    image: "/colorful-cartoon-birthday-cake.png",
+    image: "/cake31.jpg",
     title: "Kids Birthday Cakes",
     description: "Fun and colorful designs kids love",
     category: "kids",
@@ -41,7 +41,7 @@ const featuredItems = [
     image: "/cake2.jpg",
     title: "Cupcakes & Treats",
     description: "Delicious mini desserts for every occasion",
-    category: "corporate",
+    category: "treats",
   },
 ]
 
