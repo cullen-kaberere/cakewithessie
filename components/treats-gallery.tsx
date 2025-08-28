@@ -313,60 +313,7 @@ const treatsData = [
     preparationTime: "Same day",
     notes: "Chocolate coated. Can be assorted with 2 flavors."
   },
-  // Add-ons - Edible Toppers
-  {
-    id: 12,
-    title: "Edible Toppers",
-    category: "add-ons",
-    image: "/edible-toppers.png",
-    basePrice: 100,
-    description: "Beautiful edible decorations to enhance your cakes",
-    items: [
-      { name: "Black Grad Cap", price: 500 },
-      { name: "Custom Grad Cap", price: 600 },
-      { name: "Fondant Rose", price: 300 },
-      { name: "Pearls (sweets)", price: 100 },
-      { name: "Chocolate Toppers", price: 300 },
-      { name: "Oreos", price: 250 },
-      { name: "Custom Bow (large)", price: 1000 },
-      { name: "Rainbow", price: 1000 },
-      { name: "Custom Unicorn Horn (large)", price: 1000 },
-      { name: "Teddy Bear", price: 600 },
-      { name: "Animated Doll (medium)", price: 600 },
-      { name: "Strawberries (berry fruits)", price: 400 },
-      { name: "Baby Shoes", price: 500 },
-      { name: "Cupcake/Cake Edible Print", price: 1000 }
-    ],
-    sizes: ["Each"],
-    preparationTime: "Same day"
-  },
-  // Add-ons - Non-Edible Toppers
-  {
-    id: 13,
-    title: "Non-Edible Toppers",
-    category: "add-ons",
-    image: "/non-edible-toppers.png",
-    basePrice: 150,
-    description: "Decorative toppers you can keep as keepsakes",
-    items: [
-      { name: "A6 Custom Card", price: 250 },
-      { name: "Ribbons (6)", price: 200 },
-      { name: "Animated Paper Toppers", price: 1000 },
-      { name: "Acrylic Name Toppers", price: 600 },
-      { name: "Paper Name Toppers", price: 300 },
-      { name: "Wavy Candles", price: 350 },
-      { name: "Butterflies", price: 350 },
-      { name: "Placard Numbers", price: 300 },
-      { name: "Candle Numbers", price: 150 },
-      { name: "Small Tiara", price: 400 },
-      { name: "Big Tiara", price: 500 },
-      { name: "Polaroids (10)", price: 500 },
-      { name: "Spheres", price: 1000 },
-      { name: "Flowers (40-50 stems)", price: 2000 }
-    ],
-    sizes: ["Each"],
-    preparationTime: "Same day"
-  }
+  
 ]
 
 export default function TreatsGallery() {
