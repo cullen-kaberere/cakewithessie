@@ -5,25 +5,24 @@ import CakeModal from "./cake-modal"
 
 const cakeCategories = [
   { id: "all", name: "All Cakes" },
-  { id: "wedding", name: "Weddings" },
   { id: "birthday", name: "Birthday" },
   { id: "kids", name: "Kids" },
   { id: "graduation", name: "Graduation" },
   { id: "custom", name: "Custom" },
   { id: "anniversary", name: "Anniversary" },
-  { id: "corporate", name: "Corporate" },
+  { id: "tier", name: "Tier" },
 ]
 
 const cakesData = [
   {
     id: 1,
-    title: "Elegant Rose Wedding Cake",
-    category: "wedding",
+    title: "Tier Cake",
+    category: "tier",
     image: "/elegant-pink-rose-wedding-cake.png",
     startingPrice: 150,
-    description: "Beautiful three-tier wedding cake with delicate sugar roses",
+    description: "Beautiful tier wedding cake with delicate sugar roses",
     flavors: ["Vanilla", "Chocolate", "Red Velvet", "Lemon"],
-    sizes: ["2kg", "3kg", "4kg", "5kg"],
+    sizes: ["3kg", "4kg", "5kg"],
   },
   {
     id: 2,
