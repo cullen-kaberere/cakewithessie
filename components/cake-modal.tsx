@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useCart } from "@/contexts/cart-context"
-import { HiX, HiMinus, HiPlus, HiShoppingCart } from "react-icons/hi"
+import { HiX, HiMinus, HiPlus, HiShoppingCart, HiChevronDown, HiChevronUp } from "react-icons/hi"
 
 interface CakeModalProps {
   cake: {
@@ -257,6 +257,10 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
     customTopper: false
   })
   const [selectedAddons, setSelectedAddons] = useState<{id: string, name: string, price: number}[]>([])
+  const [dropdownOpen, setDropdownOpen] = useState({
+    edible: false,
+    nonEdible: false
+  })
   const { addItem } = useCart()
 
   const getPrice = (flavor: string, size: string) => {
@@ -288,12 +292,19 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
   const addonsPrice = calculateAddonsPrice();
   const totalPrice = (basePrice + extrasPrice + addonsPrice) * quantity;
 
-  const handleAddonToggle = (addon: {id: string, name: string, price: number}, type: 'edible' | 'non-edible') => {
+  const handleAddonToggle = (addon: {id: string, name: string, price: number}) => {
     if (selectedAddons.some(a => a.id === addon.id)) {
       setSelectedAddons(prev => prev.filter(a => a.id !== addon.id));
     } else {
       setSelectedAddons(prev => [...prev, addon]);
     }
+  }
+
+  const toggleDropdown = (type: 'edible' | 'nonEdible') => {
+    setDropdownOpen(prev => ({
+      ...prev,
+      [type]: !prev[type]
+    }));
   }
 
   const handleAddToCart = () => {
@@ -454,52 +465,65 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
               {/* Addons Section */}
               <div className="option-group">
                 <div className="option-header">
+                  <h4>Select Addons</h4>
+                </div>
+                <div className="dropdown-header" onClick={() => toggleDropdown('edible')}>
                   <h4>Edible Toppers</h4>
+                  {dropdownOpen.edible ? <HiChevronUp /> : <HiChevronDown />}
                 </div>
-                <div className="addons-grid">
-                  {ADDONS.EDIBLE.map((addon) => (
-                    <label 
-                      key={addon.id}
-                      className={`addon-option ${selectedAddons.some(a => a.id === addon.id) ? "selected" : ""}`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedAddons.some(a => a.id === addon.id)}
-                        onChange={() => handleAddonToggle(addon, 'edible')}
-                      />
-                      <span className="addon-checkmark"></span>
-                      <span className="addon-info">
-                        <span className="addon-name">{addon.name}</span>
-                        <span className="addon-price">+ Ksh {addon.price}</span>
-                      </span>
-                    </label>
-                  ))}
-                </div>
+                {dropdownOpen.edible && (
+                  <div className="dropdown-content">
+                    <div className="addons-grid">
+                      {ADDONS.EDIBLE.map((addon) => (
+                        <label 
+                          key={addon.id}
+                          className={`addon-option ${selectedAddons.some(a => a.id === addon.id) ? "selected" : ""}`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={selectedAddons.some(a => a.id === addon.id)}
+                            onChange={() => handleAddonToggle(addon)}
+                          />
+                          <span className="addon-checkmark"></span>
+                          <span className="addon-info">
+                            <span className="addon-name">{addon.name}</span>
+                            <span className="addon-price">+ Ksh {addon.price}</span>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="option-group">
-                <div className="option-header">
+                <div className="dropdown-header" onClick={() => toggleDropdown('nonEdible')}>
                   <h4>Non-Edible Toppers</h4>
+                  {dropdownOpen.nonEdible ? <HiChevronUp /> : <HiChevronDown />}
                 </div>
-                <div className="addons-grid">
-                  {ADDONS.NON_EDIBLE.map((addon) => (
-                    <label 
-                      key={addon.id}
-                      className={`addon-option ${selectedAddons.some(a => a.id === addon.id) ? "selected" : ""}`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedAddons.some(a => a.id === addon.id)}
-                        onChange={() => handleAddonToggle(addon, 'non-edible')}
-                      />
-                      <span className="addon-checkmark"></span>
-                      <span className="addon-info">
-                        <span className="addon-name">{addon.name}</span>
-                        <span className="addon-price">+ Ksh {addon.price}</span>
-                      </span>
-                    </label>
-                  ))}
-                </div>
+                {dropdownOpen.nonEdible && (
+                  <div className="dropdown-content">
+                    <div className="addons-grid">
+                      {ADDONS.NON_EDIBLE.map((addon) => (
+                        <label 
+                          key={addon.id}
+                          className={`addon-option ${selectedAddons.some(a => a.id === addon.id) ? "selected" : ""}`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={selectedAddons.some(a => a.id === addon.id)}
+                            onChange={() => handleAddonToggle(addon)}
+                          />
+                          <span className="addon-checkmark"></span>
+                          <span className="addon-info">
+                            <span className="addon-name">{addon.name}</span>
+                            <span className="addon-price">+ Ksh {addon.price}</span>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="option-group">
@@ -733,6 +757,46 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
           font-weight: 600;
         }
 
+        .dropdown-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.75rem 1rem;
+          background: var(--soft-pink);
+          border-radius: 12px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .dropdown-header:hover {
+          background: var(--light-pink);
+        }
+
+        .dropdown-header h4 {
+          color: var(--primary-pink);
+          margin: 0;
+          font-size: 1.1rem;
+          font-weight: 600;
+        }
+
+        .dropdown-content {
+          padding: 1rem;
+          background: var(--light-gray);
+          border-radius: 12px;
+          animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
         .selected-indicator {
           background: var(--soft-pink);
           color: var(--primary-pink);
@@ -934,7 +998,7 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
           gap: 0.5rem;
-          max-height: 200px;
+          max-height: 300px;
           overflow-y: auto;
           padding: 0.5rem;
         }
@@ -1229,6 +1293,18 @@ export default function CakeModal({ cake, onClose }: CakeModalProps) {
         }
         
         .dark .flavored-cakes-suboptions {
+          background: var(--muted);
+        }
+        
+        .dark .dropdown-header {
+          background: var(--muted);
+        }
+        
+        .dark .dropdown-header:hover {
+          background: var(--soft-pink);
+        }
+        
+        .dark .dropdown-content {
           background: var(--muted);
         }
       `}</style>
