@@ -99,7 +99,7 @@ const cakesData = [
     id: 9,
     title: "Anniversary Romance",
     category: "anniversary",
-    image: "/cake42.jpg",
+    image: "/cake44.jpg",
     startingPrice: 65,
     description: "Romantic cake design for anniversary celebrations",
     flavors: ["Red Velvet", "Chocolate", "Vanilla", "Strawberry"],
