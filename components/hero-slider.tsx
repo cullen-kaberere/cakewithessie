@@ -129,6 +129,7 @@ export default function HeroSlider() {
         }
 
         .slide-subtitle {
+          color: white;
           font-size: 1.5rem;
           margin-bottom: 2rem;
           animation: slideUp 1s ease-out 0.2s both;
