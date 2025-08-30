@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "Cakes With Essie - Custom Cakes & Treats",
   description: "Beautiful custom cakes, cupcakes, and treats for all occasions. Made with love by Essie.",
   generator: "v0.app",
+  icons: {
+  icon: "/Fav15.png",
+},
 }
 
 export default function RootLayout({
